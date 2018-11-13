@@ -1,7 +1,7 @@
 ---
 - name: install tools
   apt: name={{item}} state=present update_cache=yes
-  with items:
+  with_items:
     - python-mysqldb
 
 - name: install mysql-server
