@@ -2,6 +2,11 @@
   - hosts: loadbalancer
     become: true
     tasks:
+    - name: install tools
+      apt: name={{item}} state=present update_cache=yes
+      with_items:
+        - python-httplib2
+
     - name: install nginx
       apt: name=nginx state=present update_cache=yes
 
@@ -17,7 +22,7 @@
       notify: restart nginx
 
     - name: activate demo nginx site
-      file: src= /etc/nginx/sites-available/demo dest=/etc/nginx/sites-enables/demo state=link
+      file: src=/etc/nginx/sites-available/demo dest=/etc/nginx/sites-enabled/demo state=link
       notify: restart nginx
 
     handlers:
