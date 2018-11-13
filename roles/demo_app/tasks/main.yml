@@ -17,7 +17,7 @@
   notify: restart apache2
 
 - name: setup python virtualenv
-  pip: requirments=/var/www/demo/requirements.txt virtualenv=/var/www/demo/.venv
+  pip: requirements=/var/www/demo/requirements.txt virtualenv=/var/www/demo/.venv
   notify: restart apache2
 
 - name: activate demo apache site
