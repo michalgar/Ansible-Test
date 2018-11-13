@@ -1,0 +1,6 @@
+---
+- hosts: control
+  become: true
+  tasks:
+    - name: install tools
+      apt: name=[u'curl'] state=present update_cache=yes
